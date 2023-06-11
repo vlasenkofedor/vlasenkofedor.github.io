@@ -71,9 +71,9 @@ const experinceInfo = [
             'Delivery and analytics service for gaming tables of McDonald’s Canadian branches.<br/>' +
             'Development of a chromosome processing application for the Singapore Medical University.',
         techs: [
-            'fastify', 'sequelize', 'vue', 'quasar', 'three', 'fabric.js', 'uWebSockets.js', 'WebRtc',
-            'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'go', 'chi', 'xmpp', 'ldap',
-            'mysql', 'redis', 'postgresql', 'memcache', 'swagger'
+            'fastify', 'sequelize', 'vue', 'quasar', 'three', 'fabric.js', 'hyperledger-fabric', 'uWebSockets.js', 'WebRtc',
+            'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'ldap', 'RabbitMQ',
+            'mysql', 'redis', 'postgresql', 'memcache', 'bigQuery', 'firebase', 'google-cli', 'amazon', 'Digital Ocean', 'godaddy'
         ]
     },
     {
@@ -170,11 +170,11 @@ const skillInfo = [
     },
     {
         name: 'PHP',
-        rate: 99,
+        rate: 85,
     },
     {
         name: 'Go',
-        rate: 70,
+        rate: 60,
     }
 
 ]
