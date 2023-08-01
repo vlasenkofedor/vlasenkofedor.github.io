@@ -143,7 +143,7 @@ const examples = [
     },
     {
         title: 'Cabinet designer(demo)',
-        link: 'https://cupboard.top/'
+        link: 'https://cupboard-builder.web.app/'
     },
     {
         title: 'REST API(example)',
