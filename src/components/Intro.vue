@@ -1,8 +1,8 @@
 <template>
 <section class="row pt-5">
     <div class="col-md-4">
-        <div class="profile-pic">
-            <img :src="getProfileImage()" alt="">
+        <div class="profile-pic text-center">
+            <img :src="getProfileImage()" :alt="introInfo.name" class="center">
         </div>
     </div>
     <div class="col-md-7">
@@ -61,5 +61,10 @@ export default {
 </script>
 
 <style>
-
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 </style>

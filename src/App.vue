@@ -1,7 +1,13 @@
 <template>
   <div class="main-page text-center position-relative" ref="content">
-    <div class="main-page-inner mx-auto text-start bg-white shadow-lg">
-<!--      <button class="btn" @click="exportPdf" v-if="downloadButtonVisible">Export PDF</button>-->
+    <div class="main-page-inner mx-auto text-start bg-white shadow-lg position-relative">
+      <img :src="getImage('pdf.png')"
+           alt="Export PDF"
+           title="Export PDF"
+           class="export-pdf"
+           @click="exportPdf"
+           v-if="downloadButtonVisible"
+      />
       <Intro :introInfo="data.introInfo" :contactInfo="data.contactInfo" :socialMediaInfo="data.socialMediaInfo"/>
       <div class="p-5">
         <Summary :summaryInfo="data.summaryInfo"/>
@@ -31,8 +37,8 @@
 </template>
 
 <script>
-// import jsPDF from 'jspdf'
-// import domtoimage from "dom-to-image";
+import jsPDF from 'jspdf';
+import domtoimage from "dom-to-image";
 
 import Intro from '@/components/Intro.vue'
 import Summary from '@/components/Summary.vue'
@@ -69,20 +75,26 @@ export default {
     }
   },
   methods: {
-    /*exportPdf() {
-      this.downloadButtonVisible = false
-      /!** WITH CSS *!/
+    getImage(name) {
+      return require(`./assets/images/${name}`)
+    },
+    exportPdf() {
+      this.downloadButtonVisible = false;
+      const width = this.$refs.content.clientWidth;
+      const height = this.$refs.content.clientHeight;
+      console.log('Best', this.$refs.content);
       domtoimage
           .toPng(this.$refs.content)
           .then(function (dataUrl) {
             const img = new Image();
             img.src = dataUrl;
+            console.log({height, width});
             const doc = new jsPDF({
               orientation: "portrait",
-              // unit: "pt",
-              format: [750, 500]
+              unit: "pt",
+              format: [width, height]//2084, 1920
             });
-            doc.addImage(img, "JPEG", 20, 20);
+            doc.addImage(img, "JPEG", 0, 3);
             const date = new Date();
             const filename = "CV_FedorVlasenko.pdf";
             doc.save(filename);
@@ -93,11 +105,20 @@ export default {
           .finally(_ => {
             this.downloadButtonVisible = true
           })
-    }*/
+    }
   }
 }
 </script>
 
 <style>
 @import './assets/css/font-awesome/css/font-awesome.css';
+
+.export-pdf {
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  right: 20px;
+  top: 3em;
+}
 </style>

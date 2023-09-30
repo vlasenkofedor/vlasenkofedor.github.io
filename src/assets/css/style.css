@@ -14,19 +14,6 @@ body {
     max-width: 1080px;
 }
 
-.btn {
-    background: #031634;
-    border: #031634;
-    color: #fafafa;
-    margin-right: 10px;
-}
-
-.btn:hover {
-    background: #d1d0d0;
-    color: #031634;
-}
-
-
 .profile-intro {
     margin-top: 50px;
 }

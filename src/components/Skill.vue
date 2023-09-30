@@ -15,7 +15,6 @@
         <ul class="tech-list">
           <li style="display: inline-block;margin-right: 0.5rem;" v-for="(skill,index) in otherSkillInfo" :key="index">
             {{ skill }}
-            <!-- <span class="badge bg-secondary badge-pill p-2 mb-2">{{skill.name}}</span> -->
           </li>
         </ul>
       </div>
