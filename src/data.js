@@ -52,7 +52,7 @@ const contactInfo = [
 ]
 
 const summaryInfo =
-    'Hello, I am Fedor from Ukraine. I have +8 years of experience with javascript, php and go with a focus on RestAPIs, MVC and micro-services.\n' +
+    'Hello, I am Fedor from Ukraine. I have +9 years of experience with javascript, php and go with a focus on RestAPIs, MVC and micro-services.\n' +
     'I have +5 years of experience in freelance web development. Creating  websites, components, plugins and modules.\n' +
     'Programming for me is not only a job, but also a hobby for over 20 years.'
 
@@ -71,9 +71,9 @@ const experinceInfo = [
             'Delivery and analytics service for gaming tables of McDonald’s Canadian branches.<br/>' +
             'Development of a chromosome processing application for the Singapore Medical University.',
         techs: [
-            'fastify', 'sequelize', 'vue', 'quasar', 'three', 'fabric.js', 'hyperledger-fabric', 'uWebSockets.js', 'WebRtc',
-            'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'ldap', 'RabbitMQ', 'InfluxDB', 'ldap',
-            'mysql', 'redis', 'postgresql', 'memcache', 'bigQuery', 'firebase', 'google-cli', 'amazon'
+            'fastify', 'sequelize', 'vue', 'quasar', 'three.js', 'fabric.js', 'hyperledger-fabric', 'uWebSockets.js', 'WebRtc',
+            'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'ISPConfig', 'RabbitMQ', 'InfluxDB', 'ldap',
+            'mysql', 'redis', 'postgresql', 'memcache', 'bigQuery', 'firebase'
         ]
     },
     {
@@ -142,16 +142,16 @@ const examples = [
         link: 'https://github.com/vlasenkofedor/pagination/blob/master/pagination.js'
     },
     {
-        title: 'Cabinet designer(demo)',
+        title: 'Cabinet designer (demo)',
         link: 'https://cupboard-builder.web.app/'
-    },
-    {
-        title: 'REST API(example)',
-        link: 'https://qna.habr.com/q/852971#answer_item_1752483'
     },
     {
         title: 'Tic tac toe (magic)',
         link: 'https://jsfiddle.net/vlasenkofedor/5ad26zc7/'
+    },
+    {
+        title: 'REST API (joke)',
+        link: 'https://qna.habr.com/q/852971#answer_item_1752483'
     },
     {
         title: 'Traffic light',

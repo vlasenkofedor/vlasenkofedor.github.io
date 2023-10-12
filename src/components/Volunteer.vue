@@ -6,9 +6,9 @@
         <span style="margin-bottom: 0;font-size:15px">{{ vol.title }} | </span>
         <span style="font-size:13px;font-style: italic;">{{ vol.duration }} </span>
         <span style="margin-bottom: 0;color: #6c757d !important;font-size:13px">
-          ( <a class="text-link" :href="vol.profileLink" :title="`Profile link ${vol.title}`" target="_blank">
+          (<a class="text-link" :href="vol.profileLink" :title="`Profile link ${vol.title}`" target="_blank">
           my profile
-        </a> )
+        </a>)
         </span>
       </li>
     </ul>

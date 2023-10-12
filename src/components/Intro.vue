@@ -1,12 +1,12 @@
 <template>
 <section class="row pt-5">
-    <div class="col-md-4">
-        <div class="profile-pic text-center">
+    <div class="col-md-3 px-md-5">
+        <div class="profile-pic">
             <img :src="getProfileImage()" :alt="introInfo.name" class="center">
         </div>
     </div>
-    <div class="col-md-7">
-        <div class="row justify-content-center justify-content-md-between">
+    <div class="col-md-9">
+        <div class="row justify-content-center">
             <div class="col-auto">
                 <h1 class="intro-title1">
                     <span class="color1 bold">{{introInfo.name}}</span></h1>
@@ -66,5 +66,6 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  text-align: center;
 }
 </style>

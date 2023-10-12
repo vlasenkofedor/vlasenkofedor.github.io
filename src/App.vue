@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page text-center position-relative" ref="content">
+  <div class="main-page text-center" ref="content">
     <div class="main-page-inner mx-auto text-start bg-white shadow-lg position-relative">
       <img :src="getImage('pdf.png')"
            alt="Export PDF"
