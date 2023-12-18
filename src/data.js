@@ -72,7 +72,7 @@ const experinceInfo = [
             'Development of a chromosome processing application for the Singapore Medical University.',
         techs: [
             'fastify', 'sequelize', 'vue', 'quasar', 'three.js', 'fabric.js', 'hyperledger-fabric', 'uWebSockets.js', 'WebRtc',
-            'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'ISPConfig', 'RabbitMQ', 'InfluxDB', 'ldap',
+            'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'ISPConfig', 'RabbitMQ', 'InfluxDB', 'ldap', 'docker',
             'mysql', 'redis', 'postgresql', 'memcache', 'bigQuery', 'firebase'
         ]
     },
@@ -159,7 +159,7 @@ const examples = [
     },
     {
         title: 'Tabs js',
-        link: 'http://jsfiddle.net/vlasenkofedor/jLprM/'
+        link: 'https://jsfiddle.net/vlasenkofedor/jLprM/'
     },
 ]
 
