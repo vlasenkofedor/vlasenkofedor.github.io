@@ -52,7 +52,7 @@ const contactInfo = [
 ]
 
 const summaryInfo =
-    'Hello, I am Fedor from Ukraine. I have +9 years of experience with javascript, php and go with a focus on RestAPIs, MVC and micro-services.\n' +
+    'Hello, I am Fedor from Ukraine. I have +10 years of experience with javascript, php and go with a focus on RestAPIs, MVC and micro-services.\n' +
     'I have +5 years of experience in freelance web development. Creating  websites, components, plugins and modules.\n' +
     'Programming for me is not only a job, but also a hobby for over 20 years.'
 
@@ -71,9 +71,9 @@ const experinceInfo = [
             'Delivery and analytics service for gaming tables of McDonald’s Canadian branches.<br/>' +
             'Development of a chromosome processing application for the Singapore Medical University.',
         techs: [
-            'fastify', 'sequelize', 'vue', 'quasar', 'three.js', 'fabric.js', 'hyperledger-fabric', 'uWebSockets.js', 'WebRtc',
+            'Node.js', 'fastify', 'sequelize', 'vue', 'quasar', 'three.js', 'fabric.js', 'hyperledger-fabric', 'uWebSockets.js', 'WebRtc',
             'mediasoup', 'php', 'phalcon', 'yii', 'laravel', 'joomla', 'ISPConfig', 'RabbitMQ', 'InfluxDB', 'ldap', 'docker',
-            'mysql', 'redis', 'postgresql', 'memcache', 'bigQuery', 'firebase'
+            'mysql', 'redis', 'postgresql', 'memcache', 'bigQuery', 'firebase', 'linux'
         ]
     },
     {
@@ -174,7 +174,7 @@ const skillInfo = [
     },
     {
         name: 'Go',
-        rate: 60,
+        rate: 40,
     }
 
 ]
