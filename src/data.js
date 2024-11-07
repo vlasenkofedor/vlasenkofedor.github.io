@@ -60,10 +60,21 @@ const summaryInfo =
 //desc v-html
 const experinceInfo = [
     {
+        workAt: 'TECHWHIRL',
+        link: 'https://techwhirl.io',
+        position: 'CTO',
+        duration: 'May 2024 – Present',
+        description: 'Development of a p2p sales platform.<br/>',
+        techs: [
+            'Node.js', 'Go', 'fastify', 'sequelize', 'vue', 'quasar', 'uWebSockets.js', 'WebRtc',
+            'RabbitMQ', 'ldap', 'docker', 'mysql', 'redis', 'postgresql', 'linux'
+        ]
+    },
+    {
         workAt: 'Zeus Electronics',
         link: 'https://ze-us.xyz',
         position: 'Backend Developer',
-        duration: 'Sep 2015 – Present',
+        duration: 'Sep 2015 – May 2024',
         description: 'Advising programmers in the choosing solutions.<br/>' +
             'Text and video chats, video streaming, working with big data.<br/>' +
             'Development of web applications, services, api for clients.<br/>' +
