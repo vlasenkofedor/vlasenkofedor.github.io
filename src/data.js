@@ -1,6 +1,6 @@
 const introInfo = {
     name: 'Fedor Vlasenko',
-    title: 'Backend Developer',
+    title: 'CTO. Tech Lead',
     location: 'Kyiv, Ukraine',
     description: '',
     image: 'fedor.png',
@@ -73,7 +73,7 @@ const experinceInfo = [
     {
         workAt: 'Zeus Electronics',
         link: 'https://ze-us.xyz',
-        position: 'Backend Developer',
+        position: 'Tech Lead. Backend Developer',
         duration: 'Sep 2015 – May 2024',
         description: 'Advising programmers in the choosing solutions.<br/>' +
             'Text and video chats, video streaming, working with big data.<br/>' +
