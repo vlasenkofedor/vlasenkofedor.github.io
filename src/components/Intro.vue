@@ -1,71 +1,68 @@
 <template>
-<section class="row pt-5">
-    <div class="col-md-3 px-md-5">
-        <div class="profile-pic">
-            <img :src="getProfileImage()" :alt="introInfo.name" class="center">
-        </div>
+  <section class="row pt-4 pt-md-5 align-items-center">
+    <div class="col-12 col-md-3 px-md-4 text-center mb-3 mb-md-0">
+      <div class="profile-pic">
+        <img :src="profileImageUrl" :alt="introInfo.name" />
+      </div>
     </div>
-    <div class="col-md-9">
-        <div class="row justify-content-center">
-            <div class="col-auto">
-                <h1 class="intro-title1">
-                    <span class="color1 bold">{{introInfo.name}}</span></h1>
-                <h2 class="intro-title2">
-                    {{introInfo.title}}
-                </h2>
-                <ul class="intro-list-contact">
-                    <li v-for="(contact,index) in contactInfo" :key="index">
-                        <a class="text-link" :href="`${contact.link}`" target="_blank">
-                            <i :class="`fa fa-${contact.name} mb-2`" :style="`${contact.style}`"></i> <span> {{contact.context}}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-auto">
-                <ul class="intro-list-social">
-                    <li v-for="(social,index) in socialMediaInfo" :key="index" :href="social.link">
-                        <a class="text-link" :href="`${social.link}`" target="_blank" >
-                            <i :class="`fa fa-${social.name} mb-2`" style="font-size: 23px;margin-right:10px"></i>
-                            <span>{{social.displayName}}</span>
-                        </a>
-                    </li>
 
-                </ul>
-            </div>
+    <div class="col-12 col-md-9">
+      <div class="intro-header-text text-center text-md-start">
+        <h1 class="intro-title1">
+          <span class="color1 bold">{{ introInfo.name }}</span>
+        </h1>
+        <h2 class="intro-title2">{{ introInfo.title }}</h2>
+      </div>
+
+      <div class="row g-2 g-md-3 justify-content-center justify-content-md-start intro-contacts-row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-5 d-flex justify-content-center justify-content-md-start">
+          <ul class="intro-list-contact">
+            <li v-for="contact in contactInfo" :key="contact.icon">
+              <a class="text-link" :href="contact.link" target="_blank" rel="noopener noreferrer">
+                <i :class="`${contact.icon}`" :style="contact.style" />
+                <span>{{ contact.context }}</span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- <p v-html="introInfo.description"></p> -->
+
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 d-flex justify-content-center justify-content-md-start">
+          <ul class="intro-list-social">
+            <li v-for="social in socialMediaInfo" :key="social.icon">
+              <a class="text-link" :href="social.link" target="_blank" rel="noopener noreferrer">
+                <i :class="`${social.icon}`" style="font-size: 21px; width: 26px; display: inline-block; text-align: center; margin-right: 8px;" />
+                <span>{{ social.displayName }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 </template>
 
-<script>
-export default {
-    props: {
-        introInfo: {
-            type: Object
-        },
-        contactInfo: {
-            type: Object
-        },
-        socialMediaInfo: {
-            type: Object
-        }
-    },
-    methods: {
-        getProfileImage() {
-            return require("../assets/images/" + this.introInfo.image)
-        }
-    },
+<script setup lang="ts">
+import { computed } from 'vue'
+import type { IntroInfo, ContactItem, SocialMediaItem } from '@/types/resume'
 
-}
+const props = defineProps<{
+  introInfo: IntroInfo
+  contactInfo: ContactItem[]
+  socialMediaInfo: SocialMediaItem[]
+}>()
+
+const profileImageUrl = computed(
+  () => new URL(`../assets/images/${props.introInfo.image}`, import.meta.url).href,
+)
 </script>
 
-<style>
-.center {
+<style scoped>
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  text-align: center;
 }
 </style>

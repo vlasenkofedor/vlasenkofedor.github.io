@@ -1,0 +1,470 @@
+/* ════════════════════════════════════════════════════════════
+   APPLE PREMIUM THEME
+   Inspired by Apple's design language:
+   - SF Pro → Inter (web equivalent)
+   - Apple's color system (#1d1d1f, #f5f5f7, #0071e3)
+   - Generous whitespace, precise typography, subtle depth
+   ════════════════════════════════════════════════════════════ */
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --color-bg:          #f5f5f7;
+  --color-surface:     #ffffff;
+  --color-primary:     #1d1d1f;
+  --color-secondary:   #6e6e73;
+  --color-tertiary:    #a1a1a6;
+  --color-accent:      #0071e3;
+  --color-accent-hover:#0077ed;
+  --color-border:      #d2d2d7;
+  --color-badge-bg:    #f5f5f7;
+  --color-badge-text:  #1d1d1f;
+  --color-timeline:    #d2d2d7;
+
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-full: 9999px;
+
+  --shadow-card:  0 4px 24px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-badge: 0 1px 3px rgba(0,0,0,.06);
+
+  --font-body:      'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-heading:   'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+  --transition: .22s cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Page wrapper ───────────────────────────────────────────── */
+.main-page {
+  padding: 48px 0 80px;
+  min-height: 100vh;
+}
+
+.main-page-inner {
+  max-width: 1060px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+@media (max-width: 992px) {
+  .main-page { padding: 0; }
+  .main-page-inner { border-radius: 0; }
+}
+
+/* ─── Intro / Header ─────────────────────────────────────────── */
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 0 0 1px var(--color-border), 0 8px 32px rgba(0,0,0,.12);
+  background: var(--color-badge-bg);
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-full);
+  display: block;
+  transition: transform .4s var(--transition);
+}
+
+.profile-pic:hover img { transform: scale(1.04); }
+
+.intro-title1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-primary);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  line-height: 1.15;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .intro-title1 { font-size: 42px; text-align: left; }
+}
+@media (min-width: 992px) {
+  .intro-title1 { font-size: 48px; margin-top: 0; }
+}
+
+.intro-title2 {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--color-secondary);
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: block;
+  max-height: none;
+  letter-spacing: .1px;
+}
+
+.color1 { color: var(--color-accent); }
+.bold   { font-weight: 600; }
+
+/* ─── Contact & Social lists ────────────────────────────────── */
+.intro-list-contact,
+.intro-list-social {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.intro-list-social {
+  margin-top: 0;
+}
+
+.intro-list-contact li,
+.intro-list-social li {
+  margin-bottom: 10px;
+}
+
+.text-link {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition);
+}
+
+.text-link:hover {
+  color: var(--color-accent);
+}
+
+
+/* ─── Section titles ─────────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.section-title::after { display: none; } /* remove old pseudo-element */
+
+.section-title-small {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.section-title-small::after { display: none; }
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+ul.timeline {
+  list-style: none;
+  padding-left: 24px;
+  position: relative;
+}
+
+ul.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  width: 2px;
+  height: calc(100% - 16px);
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+li.timeline-item {
+  position: relative;
+  margin: 16px 0 0;
+  padding: 18px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+li.timeline-item:hover {
+  border-color: #b0b0b8;
+  box-shadow: 0 4px 16px rgba(0,0,0,.07);
+}
+
+li.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  border: 2px solid var(--color-surface);
+  box-shadow: 0 0 0 2px var(--color-border);
+  z-index: 1;
+}
+
+/* ─── Tech badges ────────────────────────────────────────────── */
+.tech-list {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+}
+
+.tech-list-item {
+  display: inline-block;
+  margin: 0;
+}
+
+.tech-list-item:not(:last-child) { margin-right: 0; }
+
+.badge.bg-secondary {
+  background-color: var(--color-badge-bg) !important;
+  color: var(--color-primary) !important;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px !important;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  letter-spacing: .1px;
+  box-shadow: var(--shadow-badge);
+}
+
+/* ─── Skill progress bars ────────────────────────────────────── */
+.skill-progress {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-badge-bg) !important;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.progress-bar {
+  background-color: var(--color-accent) !important;
+  border-radius: var(--radius-full);
+  transition: width .8s cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Right sidebar lists ────────────────────────────────────── */
+.right-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.right-list-item {
+  font-size: 14px;
+  color: var(--color-primary);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--color-bg);
+}
+
+/* ─── Social media section (unused but kept) ─────────────────── */
+.social-medias {
+  text-align: right;
+  margin-right: 0;
+}
+
+/* ─── Mobile & Tablet Responsive Tweaks ─────────────────────── */
+@media (max-width: 768px) {
+  .main-page {
+    padding: 0;
+  }
+
+  .main-page-inner {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Optimize inner container padding for mobile screen width */
+  .p-5 {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+    margin-top: 10px;
+  }
+
+  .intro-title1 {
+    font-size: 26px;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .intro-title2 {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .intro-list-contact,
+  .intro-list-social {
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  .intro-list-contact li,
+  .intro-list-social li {
+    margin-bottom: 8px;
+  }
+
+  .text-link {
+    font-size: 13.5px;
+    word-break: break-word;
+  }
+
+  /* Timeline adjustments for mobile */
+  ul.timeline {
+    padding-left: 16px;
+  }
+
+  ul.timeline::before {
+    left: 4px;
+  }
+
+  li.timeline-item {
+    padding: 14px 14px;
+    margin-top: 12px;
+  }
+
+  li.timeline-item::before {
+    left: -19px;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Compact tech tags on mobile */
+  .tech-list {
+    gap: 5px;
+  }
+
+  .badge.bg-secondary {
+    font-size: 11px;
+    padding: 3px 8px !important;
+  }
+
+  .section-title,
+  .section-title-small {
+    font-size: 11px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .intro-title1 {
+    font-size: 24px;
+  }
+
+  .p-5 {
+    padding: 1rem 0.75rem !important;
+  }
+}
+
+/* ─── Typography refinements ─────────────────────────────────── */
+
+/* Job / role title — override Bootstrap .h5 (20px → 17px) */
+li.timeline-item .h5 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+/* Company name — uppercase label style */
+li.timeline-item .h6 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-top: 2px;
+}
+li.timeline-item .h6 a.text-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+li.timeline-item .h6 a.text-link:hover {
+  color: var(--color-accent);
+}
+
+/* Dates — smaller, muted, not drawing focus */
+li.timeline-item p em,
+li.timeline-item p i {
+  font-size: 13px;
+  color: var(--color-tertiary);
+  display: block;
+  margin: 4px 0 10px;
+}
+
+/* "Technologies used:" inline label */
+li.timeline-item .bold {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-secondary);
+  letter-spacing: .2px;
+}
+
+/* Skill sub-category labels: Technical / Others / Professional */
+.p-5 section .bold {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* Contact/Social text */
+.text-link span {
+  font-size: 14px;
+}
+
+/* Summary body text — slightly softer */
+.mb-5 > p {
+  font-size: 15px;
+  color: var(--color-secondary);
+  line-height: 1.7;
+}

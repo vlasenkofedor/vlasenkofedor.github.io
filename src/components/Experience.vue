@@ -1,36 +1,38 @@
 <template>
-<section class="mb-5">
+  <section class="mb-5">
     <h3 class="section-title" style="margin-left: 10px;">Work Experience</h3>
     <ul class="timeline">
-        <li v-for="(exp,index) in experinceInfo" :key="index" class="timeline-item rounded ml-3 p-4 shadow">
-            <div class="timeline-arrow"></div>
-            <p class="h5 bold">{{exp.position}}</p>
-            <p class="h6"><a class="text-link" :href="exp.link" style="font-weight: bold">{{exp.workAt}}</a></p>
-            <span style="font-style: italic;">{{exp.duration}}</span>
-            <p v-if="exp.description != null && exp.description != undefined" class="mt-2" v-html="exp.description"></p>
-            <div v-if="exp.techs.length > 0">
-                <span class="bold">Technologies used:</span>
-                <ul class="tech-list pt-2">
-                    <li class="tech-list-item" v-for="(tech,index) in exp.techs" :key="index">
-                        <span class="badge bg-secondary badge-pill p-2">{{tech}}</span>
-                    </li>
-                </ul>
-            </div>
-        </li>
+      <li
+        v-for="(exp, index) in experienceInfo"
+        :key="index"
+        class="timeline-item rounded ml-3 p-4 shadow"
+      >
+        <div class="timeline-arrow" />
+        <p class="h5 bold">{{ exp.position }}</p>
+        <p class="h6">
+          <a class="text-link" :href="exp.link" style="font-weight: bold;" target="_blank" rel="noopener noreferrer">
+            {{ exp.workAt }}
+          </a>
+        </p>
+        <span style="font-style: italic;">{{ exp.duration }}</span>
+        <p v-if="exp.description" class="mt-2" v-html="exp.description" />
+        <div v-if="exp.techs.length > 0">
+          <span class="bold">Technologies used:</span>
+          <ul class="tech-list pt-2">
+            <li v-for="(tech, techIndex) in exp.techs" :key="techIndex" class="tech-list-item">
+              <span class="badge bg-secondary badge-pill p-2">{{ tech }}</span>
+            </li>
+          </ul>
+        </div>
+      </li>
     </ul>
-</section>
+  </section>
 </template>
 
-<script>
-export default {
-    props: {
-        experinceInfo: {
-            type: Object,
-        }
-    }
-}
+<script setup lang="ts">
+import type { ExperienceItem } from '@/types/resume'
+
+defineProps<{
+  experienceInfo: ExperienceItem[]
+}>()
 </script>
-
-<style>
-
-</style>
