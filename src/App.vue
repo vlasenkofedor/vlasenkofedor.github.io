@@ -8,7 +8,7 @@
           aria-label="Export to PDF"
           @click="exportPdf"
         >
-          <img :src="pdfIconUrl" alt="Export PDF" width="64" height="64" />
+          <i class="fas fa-file-arrow-down" />
         </button>
 
         <button
@@ -29,7 +29,11 @@
       />
 
       <div class="p-5">
-        <Summary :summary-info="data.summaryInfo" />
+        <div class="row">
+          <div class="col-lg-8">
+            <Summary :summary-info="data.summaryInfo" />
+          </div>
+        </div>
 
         <div class="row">
           <div class="col-lg-8">
@@ -217,58 +221,57 @@ async function exportPdf(): Promise<void> {
 
 .action-buttons {
   position: absolute;
-  right: 20px;
-  top: 2.5em;
+  right: 24px;
+  top: 24px;
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   z-index: 10;
 }
 
 .action-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: none;
-  border: none;
-  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-bg, #f5f5f7);
+  border: 1px solid var(--color-border, #d2d2d7);
+  color: var(--color-primary, #1d1d1f);
+  font-size: 17px;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  color: var(--color-accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .action-btn:hover {
-  transform: scale(1.08);
+  background: #ffffff;
+  color: var(--color-accent, #0071e3);
+  border-color: var(--color-accent, #0071e3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.action-btn .fa-share-nodes {
-  font-size: 34px;
+.action-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* ─── Mobile specific: vertical buttons stack & top-right position ─── */
+/* ─── Mobile specific: vertical stack in top right corner ─── */
 @media (max-width: 768px) {
   .action-buttons {
-    top: 14px;
-    right: 14px;
+    top: 16px;
+    right: 16px;
     flex-direction: column;
     gap: 8px;
   }
 
   .action-btn {
-    width: 44px;
-    height: 44px;
-  }
-
-  .action-btn img {
-    width: 44px;
-    height: 44px;
-  }
-
-  .action-btn .fa-share-nodes {
-    font-size: 26px;
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
   }
 }
 </style>
