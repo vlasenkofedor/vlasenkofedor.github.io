@@ -1,3 +1,6 @@
+// Используем .ts расширение для файлов с TypeScript синтаксисом
+// Этот файл должен быть переименован в data.ts
+
 export interface IntroInfo {
   name: string;
   title: string;
