@@ -36,7 +36,8 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, Ref } from 'vue';
 import jsPDF from 'jspdf';
 import domtoimage from "dom-to-image";
 
@@ -54,59 +55,40 @@ import Skill from '@/components/Skill.vue'
 
 import data from './data'
 
-export default {
-  components: {
-    Example,
-    Intro,
-    Summary,
-    Profile,
-    SocialMedia,
-    Education,
-    Experience,
-    Language,
-    Interest,
-    Skill,
-    Volunteer
-  },
-  data() {
-    return {
-      data: data,
-      downloadButtonVisible: true,
-    }
-  },
-  methods: {
-    getImage(name) {
-      return require(`./assets/images/${name}`)
-    },
-    exportPdf() {
-      this.downloadButtonVisible = false;
-      const width = this.$refs.content.clientWidth;
-      const height = this.$refs.content.clientHeight;
-      console.log('Best', this.$refs.content);
-      domtoimage
-          .toPng(this.$refs.content)
-          .then(function (dataUrl) {
-            const img = new Image();
-            img.src = dataUrl;
-            console.log({height, width});
-            const doc = new jsPDF({
-              orientation: "portrait",
-              unit: "pt",
-              format: [width, height]//2084, 1920
-            });
-            doc.addImage(img, "JPEG", 0, 3);
-            const date = new Date();
-            const filename = "CV_FedorVlasenko.pdf";
-            doc.save(filename);
-          })
-          .catch(function (error) {
-            console.error("oops, something went wrong!", error);
-          })
-          .finally(_ => {
-            this.downloadButtonVisible = true
-          })
-    }
-  }
+const downloadButtonVisible = ref(true);
+const content = ref<HTMLElement | null>(null);
+
+const getImage = (name: string) => {
+  return require(`./assets/images/${name}`)
+}
+
+const exportPdf = () => {
+  downloadButtonVisible.value = false;
+  const width = content.value?.clientWidth || 0;
+  const height = content.value?.clientHeight || 0;
+  console.log('Best', content.value);
+  
+  domtoimage
+      .toPng(content.value!)
+      .then(function (dataUrl: string) {
+        const img = new Image();
+        img.src = dataUrl;
+        console.log({height, width});
+        const doc = new jsPDF({
+          orientation: "portrait",
+          unit: "pt",
+          format: [width, height]
+        });
+        doc.addImage(img, "JPEG", 0, 3);
+        const filename = "CV_FedorVlasenko.pdf";
+        doc.save(filename);
+      })
+      .catch(function (error) {
+        console.error("oops, something went wrong!", error);
+      })
+      .finally(_ => {
+        downloadButtonVisible.value = true
+      })
 }
 </script>
 

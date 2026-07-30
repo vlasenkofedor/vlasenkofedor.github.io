@@ -1,4 +1,71 @@
-const introInfo = {
+export interface IntroInfo {
+  name: string;
+  title: string;
+  location: string;
+  description: string;
+  image: string;
+}
+
+export interface SocialMediaItem {
+  name: string;
+  link: string;
+  username: string;
+  displayName: string;
+}
+
+export interface ContactItem {
+  name: string;
+  context: string;
+  style: string;
+  link: string;
+}
+
+export interface ExperienceItem {
+  workAt: string;
+  link: string;
+  position: string;
+  duration: string;
+  description: string;
+  techs: string[];
+}
+
+export interface EducationItem {
+  school: string;
+  location: string;
+  title: string;
+  duration: string;
+  description: string;
+}
+
+export interface VolunteerItem {
+  title: string;
+  duration: string;
+  profileLink: string;
+}
+
+export interface ExampleItem {
+  title: string;
+  link: string;
+}
+
+export interface SkillItem {
+  name: string;
+  rate: number;
+}
+
+export interface LanguageItem {
+  name: string;
+  rate: number;
+  level: string;
+}
+
+export interface InterestItem {
+  name: string;
+  description: string;
+  link?: string;
+}
+
+const introInfo: IntroInfo = {
   name: "Fedor Vlasenko",
   title: "CTO. Tech Lead",
   location: "Kyiv, Ukraine",
@@ -7,7 +74,7 @@ const introInfo = {
 };
 
 //dynamic icon
-const socialMediaInfo = [
+const socialMediaInfo: SocialMediaItem[] = [
   {
     name: "certificate",
     link: "https://www.codewars.com/users/VlasenkoFedor",
@@ -30,7 +97,7 @@ const socialMediaInfo = [
 ];
 
 
-const contactInfo = [
+const contactInfo: ContactItem[] = [
   {
     name: "envelope",
     context: "vlasenkofedor@gmail.com",
@@ -58,7 +125,7 @@ const summaryInfo =
 
 
 //desc v-html
-const experinceInfo = [
+const experinceInfo: ExperienceItem[] = [
   {
     workAt: "TECHWHIRL",
     link: "https://techwhirl.io",
@@ -106,7 +173,7 @@ const experinceInfo = [
   }
 ];
 
-const educationInfo = [
+const educationInfo: EducationItem[] = [
   {
     school: "Interregional Academy of Personnel Management",
     location: "Kyiv, Ukraine",
@@ -116,7 +183,7 @@ const educationInfo = [
   }
 ];
 
-const volunteerInfo = [
+const volunteerInfo: VolunteerItem[] = [
   {
     title: "Javascript Forum",
     duration: "2013 – 2022",
@@ -135,7 +202,7 @@ const volunteerInfo = [
 ];
 
 
-const examples = [
+const examples: ExampleItem[] = [
   {
     title: 'TRON Wallet Address Generator',
     link: 'https://github.com/vlasenkofedor/wallet_generator'
@@ -178,7 +245,7 @@ const examples = [
   }
 ];
 
-const skillInfo = [
+const skillInfo: SkillItem[] = [
   {
     name: "Javascript",
     rate: 99
@@ -203,7 +270,7 @@ const otherSkillInfo = ["Nginx", "Git", "WebSockets", "WebRtc", "WebGL", "MVC", 
 const proSkillInfo = ["Effective communication", "Strong problem solver", "Team player", "Leadership"];
 
 // 0,1,2,3,4,5
-const languageInfo = [
+const languageInfo: LanguageItem[] = [
   {
     name: "English",
     rate: 1,
@@ -222,7 +289,7 @@ const languageInfo = [
 ];
 
 
-const interestInfo = [
+const interestInfo: InterestItem[] = [
   {
     name: "Algorithms",
     description: "Programming with Algorithms"
