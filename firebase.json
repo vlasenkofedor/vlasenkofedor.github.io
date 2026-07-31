@@ -2,6 +2,9 @@
   "hosting": {
     "public": "dist",
     "site": "fedor-vlasenko",
+    "predeploy": [
+      "npm run build"
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

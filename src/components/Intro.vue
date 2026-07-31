@@ -77,7 +77,7 @@ const profileImageUrl = computed(
 
 @media (min-width: 768px) {
   .intro-profile-col {
-    padding-left: 10px !important;
+    padding-left: 22px !important;
   }
 
   .profile-pic {

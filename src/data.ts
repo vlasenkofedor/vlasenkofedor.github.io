@@ -72,7 +72,9 @@ const experinceInfo: ExperienceItem[] = [
     position: 'CTO',
     duration: 'May 2024 – Present',
     description:
-      'Architected and led the development of a high-performance crypto wallet and P2P exchange platform on the TRON blockchain.',
+      '• Architected and led the development of a high-performance crypto wallet and P2P exchange platform on the TRON blockchain.<br/>' +
+      '• Integrated AI models and LLM tooling to optimize developer workflows and accelerate delivery timelines.<br/>' +
+      '• Performed in-depth code reviews and architectural audits, delivering actionable guidance to improve code quality and production readiness.',
     techs: [
       'Node.js',
       'Rust',
