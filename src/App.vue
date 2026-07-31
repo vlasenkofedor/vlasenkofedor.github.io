@@ -8,7 +8,7 @@
           aria-label="Export to PDF"
           @click="exportPdf"
         >
-          <Icon name="file-arrow-down" />
+          <Icon name="file-arrow-down" size="22px" />
         </button>
 
         <button
@@ -18,7 +18,7 @@
           aria-label="Share resume"
           @click="shareResume"
         >
-          <Icon name="share-nodes" />
+          <Icon name="share-nodes" size="22px" />
         </button>
       </div>
 

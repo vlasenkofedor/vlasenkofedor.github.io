@@ -19,7 +19,7 @@
           <ul class="intro-list-contact">
             <li v-for="contact in contactInfo" :key="contact.icon">
               <a class="text-link" :href="contact.link" target="_blank" rel="noopener noreferrer">
-                <Icon :name="contact.icon" class="contact-icon" />
+                <Icon :name="contact.icon" size="24px" class="contact-icon" />
                 <span>{{ contact.context }}</span>
               </a>
             </li>
@@ -28,7 +28,7 @@
           <ul class="intro-list-social">
             <li v-for="social in socialMediaInfo" :key="social.icon">
               <a class="text-link" :href="social.link" target="_blank" rel="noopener noreferrer">
-                <Icon :name="social.icon" class="contact-icon" />
+                <Icon :name="social.icon" size="24px" class="contact-icon" />
                 <span>{{ social.displayName }}</span>
               </a>
             </li>
@@ -50,9 +50,9 @@ const props = defineProps<{
   socialMediaInfo: SocialMediaItem[]
 }>()
 
-const profileImageUrl = computed(
-  () => new URL(`../assets/images/${props.introInfo.image}`, import.meta.url).href,
-)
+const profileImageUrl = computed(() => {
+  return new URL('../assets/images/fedor.png', import.meta.url).href
+})
 </script>
 
 <style scoped>
@@ -61,14 +61,15 @@ const profileImageUrl = computed(
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: block;
 }
 
 .contact-icon {
-  font-size: 24px;
-  width: 26px;
-  height: 26px;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -108,7 +108,7 @@ body {
 .profile-pic:hover img { transform: scale(1.04); }
 
 .intro-title1 {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
   letter-spacing: -0.025em;
   color: #000000;
@@ -125,14 +125,14 @@ body {
 }
 
 @media (min-width: 768px) {
-  .intro-title1 { font-size: 42px; text-align: left; }
+  .intro-title1 { font-size: 46px; text-align: left; }
 }
 @media (min-width: 992px) {
-  .intro-title1 { font-size: 44px; margin-top: 0; }
+  .intro-title1 { font-size: 48px; margin-top: 0; }
 }
 
 .intro-title2 {
-  font-size: 19px;
+  font-size: 21px;
   font-weight: 600;
   color: #455a64;
   margin-top: 4px;
@@ -167,7 +167,7 @@ body {
 .text-link {
   text-decoration: none;
   color: #111111;
-  font-size: 14.5px;
+  font-size: 15.5px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -184,9 +184,9 @@ body {
 .section-title,
 .section-title-small {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #111111;
   padding-bottom: 10px;
@@ -235,7 +235,7 @@ li.timeline-item::before {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
   margin: 0;
 }
 
@@ -249,9 +249,9 @@ li.timeline-item::before {
 .badge.bg-secondary {
   background-color: #f0f2f5 !important;
   color: #111111 !important;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
-  padding: 4px 11px !important;
+  padding: 5px 12px !important;
   border-radius: var(--radius-full);
   border: 1px solid #d0d5dd;
   letter-spacing: 0.01em;
@@ -280,10 +280,10 @@ li.timeline-item::before {
 }
 
 .right-list-item {
-  font-size: 14.5px;
+  font-size: 15px;
   color: #111111;
-  padding: 5px 0;
-  border-bottom: 1px solid #f0f2f5;
+  padding: 4px 0;
+  border-bottom: none !important;
 }
 
 /* ─── Social media section ───────────────────────────────────── */
@@ -315,13 +315,13 @@ li.timeline-item::before {
   }
 
   .intro-title1 {
-    font-size: 28px;
+    font-size: 30px;
     text-align: center;
     margin-top: 12px;
   }
 
   .intro-title2 {
-    font-size: 16px;
+    font-size: 17px;
     text-align: center;
     margin-bottom: 16px;
   }
@@ -343,7 +343,7 @@ li.timeline-item::before {
   }
 
   .text-link {
-    font-size: 13.5px;
+    font-size: 14.5px;
     word-break: break-word;
   }
 
@@ -368,13 +368,13 @@ li.timeline-item::before {
   }
 
   .badge.bg-secondary {
-    font-size: 11.5px;
-    padding: 3px 9px !important;
+    font-size: 12px;
+    padding: 4px 10px !important;
   }
 
   .section-title,
   .section-title-small {
-    font-size: 11.5px;
+    font-size: 12px;
     margin-top: 16px;
   }
 }
@@ -386,7 +386,7 @@ li.timeline-item::before {
   }
 
   .intro-title1 {
-    font-size: 25px;
+    font-size: 26px;
   }
 
   .p-5 {
@@ -398,7 +398,7 @@ li.timeline-item::before {
 
 /* Job / role title — override Bootstrap .h5 */
 li.timeline-item .h5 {
-  font-size: 18px;
+  font-size: 19.5px;
   font-weight: 700;
   color: #000000;
   letter-spacing: -0.01em;
@@ -408,7 +408,7 @@ li.timeline-item .h5 {
 
 /* Company name — uppercase label style */
 li.timeline-item .h6 {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -416,7 +416,7 @@ li.timeline-item .h6 {
   margin-top: 2px;
 }
 li.timeline-item .h6 a.text-link {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: #455a64;
   letter-spacing: 0.05em;
@@ -429,8 +429,8 @@ li.timeline-item .h6 a.text-link:hover {
 li.timeline-item span,
 li.timeline-item span[style*="font-style: italic"] {
   font-style: normal !important;
-  font-size: 13.5px;
-  color: #555555;
+  font-size: 14px;
+  color: #444444;
   font-weight: 500;
   display: block;
   margin-top: 2px;
@@ -438,8 +438,8 @@ li.timeline-item span[style*="font-style: italic"] {
 
 /* Description bullet points */
 li.timeline-item p.mt-2 {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 15.5px;
+  line-height: 1.65;
   color: #111111;
   font-weight: 400;
   margin-top: 12px !important;
@@ -447,7 +447,7 @@ li.timeline-item p.mt-2 {
 
 /* "Technologies used:" inline label */
 li.timeline-item .bold {
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -459,7 +459,7 @@ li.timeline-item .bold {
 /* Skill sub-category labels: Technical / Others / Professional */
 .skills-wrapper b,
 .p-5 section .bold {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -469,12 +469,12 @@ li.timeline-item .bold {
 
 /* Contact/Social text */
 .text-link span {
-  font-size: 14.5px;
+  font-size: 15.5px;
 }
 
 /* Summary body text */
 .mb-5 > p {
-  font-size: 15.5px;
+  font-size: 16.5px;
   color: #111111;
   line-height: 1.65;
   font-weight: 400;
