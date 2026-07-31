@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, nextTick } from 'vue'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 
@@ -124,6 +124,7 @@ async function exportPdf(): Promise<void> {
   if (!el) return
 
   isExporting.value = true
+  await nextTick()
 
   try {
     // 1. Measure ALL potential break points in the live DOM before canvas render:
@@ -143,6 +144,7 @@ async function exportPdf(): Promise<void> {
       useCORS: true,
       logging: false,
       backgroundColor: '#ffffff',
+      ignoreElements: (element: Element) => element.classList.contains('action-buttons'),
     })
 
     const imgData = canvas.toDataURL('image/png')
@@ -178,7 +180,29 @@ async function exportPdf(): Promise<void> {
       isFirstPage = false
     }
 
-    // 5. Render each A4 page with clean masks at top/bottom
+    // 5. Collect all clickable links from DOM and convert coordinates to PDF mm
+    const domPxToMM = A4_WIDTH_MM / elRect.width
+    const linkElements = Array.from(el.querySelectorAll<HTMLAnchorElement>('a[href]'))
+    const linksInfo: Array<{ leftMM: number; topMM: number; widthMM: number; heightMM: number; href: string }> = []
+
+    for (const a of linkElements) {
+      const href = a.href
+      if (!href || href.startsWith('javascript:')) continue
+
+      const clientRects = Array.from(a.getClientRects())
+      for (const r of clientRects) {
+        if (r.width === 0 || r.height === 0) continue
+        linksInfo.push({
+          leftMM: (r.left - elRect.left) * domPxToMM,
+          topMM: (r.top - elRect.top) * domPxToMM,
+          widthMM: r.width * domPxToMM,
+          heightMM: r.height * domPxToMM,
+          href,
+        })
+      }
+    }
+
+    // 6. Render each A4 page with clean masks at top/bottom and interactive link annotations
     const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
 
     for (let i = 0; i < pageStartsMM.length; i++) {
@@ -186,6 +210,7 @@ async function exportPdf(): Promise<void> {
 
       const pageStart = pageStartsMM[i]
       const topMargin = i > 0 ? PAGE_TOP_MARGIN_MM : 0
+      const pageEnd = pageStartsMM[i + 1] ?? totalHeightMM
 
       // Place full image: content at pageStart aligns to y=topMargin in the PDF
       pdf.addImage(imgData, 'PNG', 0, topMargin - pageStart, A4_WIDTH_MM, totalHeightMM)
@@ -197,13 +222,26 @@ async function exportPdf(): Promise<void> {
       }
 
       // ── White mask: covers any content bleed into the NEXT page ──
-      const pageEnd = pageStartsMM[i + 1] ?? totalHeightMM
       const contentBottomInPDF = topMargin + (pageEnd - pageStart)
       if (contentBottomInPDF < A4_HEIGHT_MM) {
         pdf.rect(0, contentBottomInPDF, A4_WIDTH_MM, A4_HEIGHT_MM - contentBottomInPDF, 'F')
       }
-    }
 
+      // ── Add interactive clickable PDF links for this page ──
+      for (const link of linksInfo) {
+        const linkBottomMM = link.topMM + link.heightMM
+        if (linkBottomMM > pageStart && link.topMM < pageEnd) {
+          const visibleTop = Math.max(link.topMM, pageStart)
+          const visibleBottom = Math.min(linkBottomMM, pageEnd)
+          const visibleHeight = visibleBottom - visibleTop
+
+          if (visibleHeight > 0) {
+            const pdfY = topMargin + (visibleTop - pageStart)
+            pdf.link(link.leftMM, pdfY, link.widthMM, visibleHeight, { url: link.href })
+          }
+        }
+      }
+    }
 
     pdf.save('CV_FedorVlasenko.pdf')
   } catch (error) {

@@ -1,10 +1,10 @@
 <template>
   <section class="mb-5">
     <h3 class="section-title">Skills</h3>
-    <ul class="right-list">
-      <li>
+    <div class="skills-wrapper">
+      <div class="mb-3">
         <b>Technical</b>
-        <ul class="right-list">
+        <ul class="right-list mt-1">
           <li v-for="(skill, index) in skillInfo" :key="index" class="right-list-item mb-2">
             <span>{{ skill.name }}</span>
             <div class="progress skill-progress" style="background-color: #c0c0c0;">
@@ -19,11 +19,11 @@
             </div>
           </li>
         </ul>
-      </li>
+      </div>
 
-      <li class="mb-2">
+      <div class="mb-3">
         <b>Others</b>
-        <ul class="tech-list">
+        <ul class="tech-list mt-1">
           <li
             v-for="(skill, index) in otherSkillInfo"
             :key="index"
@@ -32,17 +32,17 @@
             {{ skill }}
           </li>
         </ul>
-      </li>
+      </div>
 
-      <li>
+      <div>
         <b>Professional</b>
-        <ul class="tech-list">
+        <ul class="tech-list mt-1">
           <li v-for="(skill, index) in proSkillInfo" :key="index" style="margin-right: 0.5rem;">
             {{ skill }}
           </li>
         </ul>
-      </li>
-    </ul>
+      </div>
+    </div>
   </section>
 </template>
 

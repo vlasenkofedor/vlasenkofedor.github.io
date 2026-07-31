@@ -7,10 +7,10 @@
         :key="index"
         class="timeline-item rounded p-4 shadow"
       >
-        <p class="h6 bold">{{ education.school }}</p>
+        <p class="h5 bold">{{ education.school }}</p>
         <p class="h6">{{ education.title }}</p>
-        <span style="font-style: italic;">{{ education.location }}</span><br />
-        <span style="font-style: italic;">{{ education.duration }}</span>
+        <span>{{ education.location }}</span><br />
+        <span>{{ education.duration }}</span>
         <p v-if="education.description" class="mt-2" v-html="education.description" />
       </li>
     </ul>

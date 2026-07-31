@@ -9,11 +9,11 @@
       >
         <p class="h5 bold">{{ exp.position }}</p>
         <p class="h6">
-          <a class="text-link" :href="exp.link" style="font-weight: bold;" target="_blank" rel="noopener noreferrer">
+          <a class="text-link" :href="exp.link" target="_blank" rel="noopener noreferrer">
             {{ exp.workAt }}
           </a>
         </p>
-        <span style="font-style: italic;">{{ exp.duration }}</span>
+        <span>{{ exp.duration }}</span>
         <p v-if="exp.description" class="mt-2" v-html="exp.description" />
         <div v-if="exp.techs.length > 0">
           <span class="bold">Technologies used:</span>

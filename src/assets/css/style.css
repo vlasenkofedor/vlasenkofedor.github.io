@@ -297,7 +297,7 @@ li.timeline-item::before {
 
 .right-list {
     list-style: none;
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 .right-list-item {
@@ -314,7 +314,7 @@ li.timeline-item::before {
 }
 
 .progress-bar {
-    background-color: var(--themeColor);
+    background-color: #607d8b;
 }
 
 
