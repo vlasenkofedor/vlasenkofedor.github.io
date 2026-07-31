@@ -8,7 +8,7 @@
           aria-label="Export to PDF"
           @click="exportPdf"
         >
-          <i class="fas fa-file-arrow-down" />
+          <Icon name="file-arrow-down" />
         </button>
 
         <button
@@ -18,7 +18,7 @@
           aria-label="Share resume"
           @click="shareResume"
         >
-          <i class="fas fa-share-nodes" />
+          <Icon name="share-nodes" />
         </button>
       </div>
 
@@ -66,8 +66,6 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue'
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
 
 import Intro from '@/components/Intro.vue'
 import Summary from '@/components/Summary.vue'
@@ -78,6 +76,7 @@ import Interest from '@/components/Interest.vue'
 import Example from '@/components/Example.vue'
 import Volunteer from '@/components/Volunteer.vue'
 import Skill from '@/components/Skill.vue'
+import Icon from '@/components/Icon.vue'
 
 import data from '@/data'
 
@@ -127,6 +126,11 @@ async function exportPdf(): Promise<void> {
   await nextTick()
 
   try {
+    const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
+      import('html2canvas'),
+      import('jspdf'),
+    ])
+
     // 1. Measure ALL potential break points in the live DOM before canvas render:
     //    - <section> boundaries (Summary, Experience, Education, …)
     //    - <li.timeline-item> boundaries (individual experience / education entries)
@@ -272,15 +276,15 @@ async function exportPdf(): Promise<void> {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--color-bg, #f5f5f7);
   border: 1px solid var(--color-border, #d2d2d7);
-  color: var(--color-primary, #1d1d1f);
-  font-size: 17px;
+  color: #111111;
+  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
