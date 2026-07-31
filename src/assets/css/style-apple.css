@@ -362,23 +362,17 @@ li.timeline-item::before {
 
   /* Timeline adjustments for mobile */
   ul.timeline {
-    padding-left: 16px;
+    padding-left: 0;
   }
 
-  ul.timeline::before {
-    left: 4px;
+  ul.timeline::before,
+  li.timeline-item::before {
+    display: none;
   }
 
   li.timeline-item {
     padding: 14px 14px;
     margin-top: 12px;
-  }
-
-  li.timeline-item::before {
-    left: -19px;
-    top: 18px;
-    width: 8px;
-    height: 8px;
   }
 
   /* Compact tech tags on mobile */

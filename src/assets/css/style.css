@@ -336,16 +336,23 @@ li.timeline-item::before {
 }
 
 
+@media (max-width: 768px) {
+    ul.timeline {
+        padding-left: 0;
+    }
+
+    ul.timeline::before,
+    li.timeline-item::before {
+        display: none;
+    }
+
+    li.timeline-item {
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 992px) {
     .contact-infos {
         text-align: center;
     }
-
-    /* .section-title{
-        text-align: center;
-    } */
-    /* .right-list-item{
-        text-align: center;
-    } */
-
 }
