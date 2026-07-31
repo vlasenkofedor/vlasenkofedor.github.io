@@ -1,6 +1,6 @@
 <template>
   <section class="mb-5">
-    <h5 class="section-title-small" style="margin-left: 10px;">Volunteer Experience</h5>
+    <h5 class="section-title-small">Volunteer Experience</h5>
     <ul class="right-list">
       <li v-for="(vol, index) in volunteerInfo" :key="index">
         <span style="margin-bottom: 0; font-size: 15px;">{{ vol.title }} | </span>

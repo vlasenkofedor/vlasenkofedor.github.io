@@ -1,6 +1,6 @@
 <template>
   <section class="mb-5">
-    <h3 class="section-title" style="margin-left: 10px;">Skills</h3>
+    <h3 class="section-title">Skills</h3>
     <ul class="right-list">
       <li>
         <b>Technical</b>

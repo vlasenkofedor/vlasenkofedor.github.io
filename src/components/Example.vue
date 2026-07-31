@@ -1,6 +1,6 @@
 <template>
   <section class="mb-5">
-    <h3 class="section-title" style="margin-left: 10px;">Code examples</h3>
+    <h3 class="section-title">Code examples</h3>
     <ul class="right-list">
       <li v-for="(ex, index) in examples" :key="index" class="right-list-item">
         <a class="text-link" :href="ex.link" target="_blank" rel="noopener noreferrer">

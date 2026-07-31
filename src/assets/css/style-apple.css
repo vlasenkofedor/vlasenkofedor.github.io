@@ -197,19 +197,12 @@ body {
 /* ─── Timeline ───────────────────────────────────────────────── */
 ul.timeline {
   list-style: none;
-  padding-left: 24px;
+  padding-left: 0;
   position: relative;
 }
 
 ul.timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 8px;
-  width: 2px;
-  height: calc(100% - 16px);
-  background: var(--color-border);
-  border-radius: var(--radius-full);
+  display: none;
 }
 
 li.timeline-item {
@@ -229,17 +222,7 @@ li.timeline-item:hover {
 }
 
 li.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -22px;
-  top: 22px;
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-full);
-  background: var(--color-accent);
-  border: 2px solid var(--color-surface);
-  box-shadow: 0 0 0 2px var(--color-border);
-  z-index: 1;
+  display: none;
 }
 
 /* ─── Tech badges ────────────────────────────────────────────── */
