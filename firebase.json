@@ -12,6 +12,13 @@
     ],
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+      {
+        "glob": "www.fedor-vlasenko.web.app/**",
+        "destination": "https://fedor-vlasenko.web.app",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**/*.@(js|css|woff2|woff|ttf)",

@@ -29,7 +29,7 @@ const socialMediaInfo: SocialMediaItem[] = [
   },
   {
     icon: 'fab fa-linkedin',
-    link: 'https://www.linkedin.com/in/fedor-vlasenko',
+    link: 'https://linkedin.com/in/fedor-vlasenko',
     username: 'fedor-vlasenko',
     displayName: 'linkedin/fedor-vlasenko',
   },

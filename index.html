@@ -5,13 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+      if (location.hostname.startsWith('www.')) {
+        location.replace(location.href.replace('www.', ''));
+      }
+    </script>
+
+    <!-- Preload LCP Profile Image -->
+    <link rel="preload" as="image" href="/fedor.png" type="image/png" />
+
     <!-- Google Fonts: Inter (Apple SF Pro closest web alternative) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      />
+    </noscript>
 
     <!-- ══════════════════════════════════════════════
          PRIMARY SEO
