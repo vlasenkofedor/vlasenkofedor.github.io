@@ -12,13 +12,6 @@
     ],
     "cleanUrls": true,
     "trailingSlash": false,
-    "redirects": [
-      {
-        "glob": "www.fedor-vlasenko.web.app/**",
-        "destination": "https://fedor-vlasenko.web.app",
-        "type": 301
-      }
-    ],
     "headers": [
       {
         "source": "**/*.@(js|css|woff2|woff|ttf)",
@@ -48,6 +41,7 @@
       {
         "source": "**",
         "headers": [
+          { "key": "Link", "value": "<https://fedor-vlasenko.web.app/>; rel=\"canonical\"" },
           { "key": "X-Content-Type-Options", "value": "nosniff" },
           { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
           { "key": "X-XSS-Protection", "value": "1; mode=block" },

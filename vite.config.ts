@@ -60,6 +60,11 @@ function purgeCssPlugin() {
 }
 
 export default defineConfig({
+  define: {
+    '__VUE_OPTIONS_API__': false,
+    '__VUE_PROD_DEVTOOLS__': false,
+    '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': false,
+  },
   plugins: [
     vue(),
     purgeCssPlugin(),
@@ -89,6 +94,9 @@ export default defineConfig({
         drop_debugger: true,
         pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.trace'],
         passes: 3,
+        unsafe: true,
+        unsafe_comps: true,
+        unsafe_math: true,
       },
       mangle: {
         toplevel: true,
