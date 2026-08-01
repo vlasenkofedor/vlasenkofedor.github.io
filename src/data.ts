@@ -209,7 +209,7 @@ const skillInfo: SkillItem[] = [
 ]
 
 const otherSkillInfo: string[] = [
-  'Blockchain (TRON)',
+  'Blockchain (TRON, Hyperledger Fabric)',
   'Cloud Storage & AWS S3',
   'Docker & Containers',
   'Nginx & Load Balancing',
