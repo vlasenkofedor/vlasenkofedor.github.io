@@ -195,7 +195,6 @@ const examples: ExampleItem[] = [
   { title: 'Joomla Admin Recovery Tool', link: 'https://github.com/vlasenkofedor/Joomla_admin_login' },
   { title: 'Joomla User Group Manager', link: 'https://github.com/vlasenkofedor/usergroup' },
   { title: 'WordPress Admin Recovery Tool', link: 'https://github.com/vlasenkofedor/wordpress_admin_login' },
-  { title: 'Dynamic Pagination Component', link: 'https://github.com/vlasenkofedor/pagination/blob/master/pagination.js' },
   { title: 'Tic Tac Toe Algorithm (Magic Square)', link: 'https://jsfiddle.net/vlasenkofedor/5ad26zc7/' },
   { title: 'REST API Pattern Implementation', link: 'https://qna.habr.com/q/852971#answer_item_1752483' },
   { title: 'Traffic Light State Machine', link: 'https://jsfiddle.net/vlasenkofedor/vfeYv/' },
@@ -210,26 +209,24 @@ const skillInfo: SkillItem[] = [
 ]
 
 const otherSkillInfo: string[] = [
-  'Nginx',
+  'Blockchain (TRON)',
+  'Cloud Storage & AWS S3',
+  'Docker & Containers',
+  'Nginx & Load Balancing',
+  'Network Protocols (TCP/IP, WebSockets, WebRTC)',
+  'Kafka & RabbitMQ',
+  'PostgreSQL & MySQL',
   'Git',
-  'WebSockets',
-  'WebRTC',
   'WebGL',
-  'MVC',
-  'Jira',
-  'Confluence',
-  'Kafka',
-  'RabbitMQ',
-  'Docker',
-  'PostgreSQL',
 ]
 
 const proSkillInfo: string[] = [
   'Technical Leadership',
   'System Architecture',
+  'Agile / Scrum',
+  'Engineering Culture & Mentorship',
   'Problem Solving',
   'Team Management',
-  'Agile / Scrum',
 ]
 
 const languageInfo: LanguageItem[] = [
@@ -239,6 +236,10 @@ const languageInfo: LanguageItem[] = [
 ]
 
 const interestInfo: InterestItem[] = [
+  {
+    name: 'AI Integration',
+    description: 'Integrating LLMs & AI tools into modern software engineering',
+  },
   { name: 'Algorithms', description: 'Data structures & algorithm design' },
   {
     name: 'Robotics',

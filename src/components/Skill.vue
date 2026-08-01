@@ -23,22 +23,26 @@
 
       <div class="mb-3">
         <b>Others</b>
-        <ul class="tech-list mt-1">
+        <ul class="tech-list mt-2">
           <li
             v-for="(skill, index) in otherSkillInfo"
             :key="index"
-            style="display: inline-block; margin-right: 0.5rem;"
+            class="tech-list-item"
           >
-            {{ skill }}
+            <span class="badge bg-secondary">{{ skill }}</span>
           </li>
         </ul>
       </div>
 
       <div>
         <b>Professional</b>
-        <ul class="tech-list mt-1">
-          <li v-for="(skill, index) in proSkillInfo" :key="index" style="margin-right: 0.5rem;">
-            {{ skill }}
+        <ul class="tech-list mt-2">
+          <li
+            v-for="(skill, index) in proSkillInfo"
+            :key="index"
+            class="tech-list-item"
+          >
+            <span class="badge bg-secondary">{{ skill }}</span>
           </li>
         </ul>
       </div>
