@@ -191,7 +191,7 @@ const examples: ExampleItem[] = [
   { title: 'TRON Scanner', link: 'https://github.com/vlasenkofedor/tron-scaner' },
   { title: 'TRON Cold Wallet Generator', link: 'https://github.com/vlasenkofedor/tron-paper-wallet' },
   { title: 'TRON Wallet Address Generator', link: 'https://github.com/vlasenkofedor/wallet_generator' },
-  { title: 'Cabinet designer (demo)', link: 'https://cupboard-builder.web.app/' },
+  { title: 'Cabinet designer (demo)', link: 'https://cupboard.website/constructor' },
   { title: 'Joomla Admin Recovery Tool', link: 'https://github.com/vlasenkofedor/Joomla_admin_login' },
   { title: 'Joomla User Group Manager', link: 'https://github.com/vlasenkofedor/usergroup' },
   { title: 'WordPress Admin Recovery Tool', link: 'https://github.com/vlasenkofedor/wordpress_admin_login' },
