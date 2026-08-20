@@ -214,7 +214,7 @@ const otherSkillInfo: string[] = [
   'Docker & Containers',
   'Nginx & Load Balancing',
   'Network Protocols (TCP/IP, WebSockets, WebRTC)',
-  'Kafka & RabbitMQ',
+  'Ollama & llama.cpp',
   'PostgreSQL & MySQL',
   'Git',
   'WebGL',

@@ -30,7 +30,7 @@
 
       <div class="p-5">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-12">
             <Summary :summary-info="data.summaryInfo" />
           </div>
         </div>
@@ -113,10 +113,7 @@ async function shareResume(): Promise<void> {
 
 // A4 dimensions in millimeters
 const A4_WIDTH_MM = 210
-const A4_HEIGHT_MM = 297
 const HTML2CANVAS_SCALE = 2
-/** Top padding added on pages 2, 3, … so content doesn't start at the very edge */
-const PAGE_TOP_MARGIN_MM = 15
 
 async function exportPdf(): Promise<void> {
   const el = pageRef.value?.querySelector<HTMLElement>('.main-page-inner')
@@ -131,18 +128,9 @@ async function exportPdf(): Promise<void> {
       import('jspdf'),
     ])
 
-    // 1. Measure ALL potential break points in the live DOM before canvas render:
-    //    - <section> boundaries (Summary, Experience, Education, …)
-    //    - <li.timeline-item> boundaries (individual experience / education entries)
     const elRect = el.getBoundingClientRect()
-    const breakElements = Array.from(
-      el.querySelectorAll<HTMLElement>('section, li.timeline-item'),
-    )
-    const breakTopsPx = breakElements.map(
-      node => node.getBoundingClientRect().top - elRect.top,
-    )
 
-    // 2. Capture the full resume as a high-res canvas
+    // Capture the full resume as a high-res canvas
     const canvas = await html2canvas(el, {
       scale: HTML2CANVAS_SCALE,
       useCORS: true,
@@ -153,41 +141,22 @@ async function exportPdf(): Promise<void> {
 
     const imgData = canvas.toDataURL('image/png')
 
-    // 3. Convert pixel positions → PDF millimeters
+    // Convert pixel dimensions to PDF millimeters
     const pxToMM = A4_WIDTH_MM / canvas.width
     const totalHeightMM = canvas.height * pxToMM
-    const breaksMM = breakTopsPx.map(px => px * HTML2CANVAS_SCALE * pxToMM)
 
-    // 4. Find optimal page break positions.
-    //    Page 1 uses the full A4 height.
-    //    Pages 2+ reserve PAGE_TOP_MARGIN_MM at the top → less content per page.
-    const pageStartsMM: number[] = [0]
-    let currentStart = 0
-    let isFirstPage = true
+    // Create a single continuous PDF page matching the full content height
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: [A4_WIDTH_MM, totalHeightMM],
+    })
 
-    while (currentStart < totalHeightMM) {
-      const usableHeight = isFirstPage
-        ? A4_HEIGHT_MM
-        : A4_HEIGHT_MM - PAGE_TOP_MARGIN_MM
+    pdf.addImage(imgData, 'PNG', 0, 0, A4_WIDTH_MM, totalHeightMM)
 
-      const pageContentEnd = currentStart + usableHeight
-      if (pageContentEnd >= totalHeightMM) break
-
-      // Last break point that still fits within this page's usable area
-      const fittingBreaks = breaksMM.filter(b => b > currentStart && b <= pageContentEnd)
-      const nextStart = fittingBreaks.length > 0
-        ? fittingBreaks[fittingBreaks.length - 1]
-        : pageContentEnd // fallback: mechanical cut
-
-      pageStartsMM.push(nextStart)
-      currentStart = nextStart
-      isFirstPage = false
-    }
-
-    // 5. Collect all clickable links from DOM and convert coordinates to PDF mm
+    // Add interactive clickable links
     const domPxToMM = A4_WIDTH_MM / elRect.width
     const linkElements = Array.from(el.querySelectorAll<HTMLAnchorElement>('a[href]'))
-    const linksInfo: Array<{ leftMM: number; topMM: number; widthMM: number; heightMM: number; href: string }> = []
 
     for (const a of linkElements) {
       const href = a.href
@@ -196,54 +165,13 @@ async function exportPdf(): Promise<void> {
       const clientRects = Array.from(a.getClientRects())
       for (const r of clientRects) {
         if (r.width === 0 || r.height === 0) continue
-        linksInfo.push({
-          leftMM: (r.left - elRect.left) * domPxToMM,
-          topMM: (r.top - elRect.top) * domPxToMM,
-          widthMM: r.width * domPxToMM,
-          heightMM: r.height * domPxToMM,
-          href,
-        })
-      }
-    }
-
-    // 6. Render each A4 page with clean masks at top/bottom and interactive link annotations
-    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
-
-    for (let i = 0; i < pageStartsMM.length; i++) {
-      if (i > 0) pdf.addPage()
-
-      const pageStart = pageStartsMM[i]
-      const topMargin = i > 0 ? PAGE_TOP_MARGIN_MM : 0
-      const pageEnd = pageStartsMM[i + 1] ?? totalHeightMM
-
-      // Place full image: content at pageStart aligns to y=topMargin in the PDF
-      pdf.addImage(imgData, 'PNG', 0, topMargin - pageStart, A4_WIDTH_MM, totalHeightMM)
-
-      // ── White mask: covers any content bleed from the PREVIOUS page ──
-      pdf.setFillColor(255, 255, 255)
-      if (topMargin > 0) {
-        pdf.rect(0, 0, A4_WIDTH_MM, topMargin, 'F')
-      }
-
-      // ── White mask: covers any content bleed into the NEXT page ──
-      const contentBottomInPDF = topMargin + (pageEnd - pageStart)
-      if (contentBottomInPDF < A4_HEIGHT_MM) {
-        pdf.rect(0, contentBottomInPDF, A4_WIDTH_MM, A4_HEIGHT_MM - contentBottomInPDF, 'F')
-      }
-
-      // ── Add interactive clickable PDF links for this page ──
-      for (const link of linksInfo) {
-        const linkBottomMM = link.topMM + link.heightMM
-        if (linkBottomMM > pageStart && link.topMM < pageEnd) {
-          const visibleTop = Math.max(link.topMM, pageStart)
-          const visibleBottom = Math.min(linkBottomMM, pageEnd)
-          const visibleHeight = visibleBottom - visibleTop
-
-          if (visibleHeight > 0) {
-            const pdfY = topMargin + (visibleTop - pageStart)
-            pdf.link(link.leftMM, pdfY, link.widthMM, visibleHeight, { url: link.href })
-          }
-        }
+        pdf.link(
+          (r.left - elRect.left) * domPxToMM,
+          (r.top - elRect.top) * domPxToMM,
+          r.width * domPxToMM,
+          r.height * domPxToMM,
+          { url: href },
+        )
       }
     }
 
