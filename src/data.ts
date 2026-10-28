@@ -63,7 +63,7 @@ const contactInfo: ContactItem[] = [
 ];
 
 const summaryInfo =
-  "CTO and Engineering Leader with 10+ years of experience building scalable backend architectures, high-load microservices, and web platforms using JavaScript, TypeScript, PHP, Go, and Rust. Passionate about system design, real-time media processing, and blockchain tech. Software engineering has been both my profession and lifelong passion for over 20 years.";
+  "CTO and Engineering Leader with 10+ years of experience building scalable backend architectures, high-load microservices, and web platforms using JavaScript, TypeScript, PHP, Go, and Rust. Passionate about system design, real-time media processing, blockchain tech, and applied AI systems. Extensive hands-on experience fine-tuning small language models (SLMs), building local LLM-powered static code analysis pipelines (synthetic analyzers, code property & dependency graphs), and orchestrating agentic workflows (OpenCode, Google Antigravity) across local and cloud environments. Software engineering has been both my profession and lifelong passion for over 20 years.";
 
 const experinceInfo: ExperienceItem[] = [
   {
@@ -73,8 +73,10 @@ const experinceInfo: ExperienceItem[] = [
     duration: "May 2024 – Present",
     description:
       "• Architected and led the development of a high-performance crypto wallet and P2P exchange platform on the TRON blockchain.<br/>" +
-      "• Integrated AI models and LLM tooling to optimize developer workflows and accelerate delivery timelines.<br/>" +
-      "• Performed in-depth code reviews and architectural audits, delivering actionable guidance to improve code quality and production readiness.",
+      "• Fine-tuned and deployed lightweight models (including fine-tuned Qwen 2.5 3B) to power a universal, fault-tolerant bank statement and transaction parser.<br/>" + 
+      "• Engineered an automated project-level static code analysis system utilizing self-hosted/local LLMs, synthetic analyzers, and AST / call-and-dependency graphs to identify architectural flaws and security risks.<br/>" +
+      "• Integrated autonomous AI coding agents and LLM tooling—including OpenCode and Google Antigravity across web and local environments—streamlining development loops and accelerating release cycles.<br/>" +
+      "• Performed in-depth architectural audits and system-level code reviews, delivering actionable guidelines to elevate maintainability, security, and production readiness.",
     techs: [
       "Node.js",
       "Rust",
