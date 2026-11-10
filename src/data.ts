@@ -70,7 +70,7 @@ const experinceInfo: ExperienceItem[] = [
     workAt: "TECHWHIRL",
     link: "https://techwhirl.io",
     position: "CTO",
-    duration: "May 2024 – Present",
+    duration: "May 2024 – November 2026",
     description:
       "• Architected and led the development of a high-performance crypto wallet and P2P exchange platform on the TRON blockchain.<br/>" +
       "• Fine-tuned and deployed lightweight models (including fine-tuned Qwen 2.5 3B) to power a universal, fault-tolerant bank statement and transaction parser.<br/>" + 

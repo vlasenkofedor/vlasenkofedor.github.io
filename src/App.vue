@@ -139,7 +139,7 @@ async function exportPdf(): Promise<void> {
       ignoreElements: (element: Element) => element.classList.contains('action-buttons'),
     })
 
-    const imgData = canvas.toDataURL('image/png')
+    const imgData = canvas.toDataURL('image/jpeg', 0.88)
 
     // Convert pixel dimensions to PDF millimeters
     const pxToMM = A4_WIDTH_MM / canvas.width
@@ -150,9 +150,10 @@ async function exportPdf(): Promise<void> {
       orientation: 'portrait',
       unit: 'mm',
       format: [A4_WIDTH_MM, totalHeightMM],
+      compress: true,
     })
 
-    pdf.addImage(imgData, 'PNG', 0, 0, A4_WIDTH_MM, totalHeightMM)
+    pdf.addImage(imgData, 'JPEG', 0, 0, A4_WIDTH_MM, totalHeightMM, undefined, 'FAST')
 
     // Add interactive clickable links
     const domPxToMM = A4_WIDTH_MM / elRect.width
