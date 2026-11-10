@@ -73,7 +73,7 @@ const experinceInfo: ExperienceItem[] = [
     duration: "May 2024 – November 2026",
     description:
       "• Architected and led the development of a high-performance crypto wallet and P2P exchange platform on the TRON blockchain.<br/>" +
-      "• Fine-tuned and deployed lightweight models (including fine-tuned Qwen 2.5 3B) to power a universal, fault-tolerant bank statement and transaction parser.<br/>" + 
+      "• Fine-tuned and deployed lightweight models (including fine-tuned Qwen 2.5 3B) to power a universal, fault-tolerant bank statement and transaction parser.<br/>" +
       "• Engineered an automated project-level static code analysis system utilizing self-hosted/local LLMs, synthetic analyzers, and AST / call-and-dependency graphs to identify architectural flaws and security risks.<br/>" +
       "• Integrated autonomous AI coding agents and LLM tooling—including OpenCode and Google Antigravity across web and local environments—streamlining development loops and accelerating release cycles.<br/>" +
       "• Performed in-depth architectural audits and system-level code reviews, delivering actionable guidelines to elevate maintainability, security, and production readiness.",
